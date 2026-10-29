@@ -11,6 +11,7 @@
     :root {
       --bg-app: #0f172a;
       --bg-panel: #1e293b;
+      --bg-card: #0f172a;
       --border-panel: #334155;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -34,15 +35,17 @@
       background-color: var(--bg-app);
       color: var(--text-main);
       padding: 20px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .container {
-      max-width: 1380px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    /* Topo e Barra de Controle */
+    /* =========================================================
+       TOPO E BARRA DE CONTROLE
+       ========================================================= */
     .app-header {
       display: flex;
       flex-wrap: wrap;
@@ -104,9 +107,30 @@
       outline: none;
     }
 
+    .btn-guide {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid #3b82f6;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+
+    .btn-guide:hover,
+    .btn-guide.active {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
     .upload-zone {
-      border: 2px dashed #3b82f6;
-      background: rgba(37, 99, 235, 0.12);
+      border: 2px dashed #10b981;
+      background: rgba(16, 185, 129, 0.12);
       border-radius: 10px;
       padding: 10px 18px;
       cursor: pointer;
@@ -116,13 +140,13 @@
       gap: 8px;
       font-size: 0.88rem;
       font-weight: 600;
-      color: #93c5fd;
+      color: #6ee7b7;
     }
 
     .upload-zone:hover,
     .upload-zone.dragover {
-      background: rgba(37, 99, 235, 0.25);
-      border-color: #60a5fa;
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #34d399;
       color: #ffffff;
     }
 
@@ -149,12 +173,300 @@
       color: #ffffff;
     }
 
-    /* Estado Inicial Limpo (Empty State) */
+    /* =========================================================
+       TELA DE EXPLICAÇÃO E PARÂMETROS DO GM-CORE
+       ========================================================= */
+    .guide-container {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-panel);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .guide-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-panel);
+      margin-bottom: 20px;
+    }
+
+    .guide-header h2 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guide-header p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .btn-close-guide {
+      background: #334155;
+      color: #f8fafc;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-close-guide:hover {
+      background: #475569;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    @media (min-width: 1100px) {
+      .guide-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+    }
+
+    /* Passos Explicativos */
+    .steps-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-panel);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .step-card.step-green {
+      border-left-color: var(--accent-green);
+    }
+
+    .step-card.step-amber {
+      border-left-color: #f59e0b;
+    }
+
+    .step-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-badge {
+      background: rgba(37, 99, 235, 0.25);
+      color: #93c5fd;
+      border: 1px solid #3b82f6;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+
+    .param-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .param-tag {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .param-tag.highlight {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: #10b981;
+      color: #6ee7b7;
+    }
+
+    /* Réplica Visual da Tela do GM-Core */
+    .gm-mockup-card {
+      background: #ffffff;
+      color: #1e293b;
+      border-radius: 10px;
+      padding: 16px;
+      border: 2px solid #cbd5e1;
+      font-family: Tahoma, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gm-mockup-top-bar {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .gm-mockup-top-bar .mock-per {
+      font-size: 11px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .gm-mockup-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .gm-mockup-pill {
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      padding: 3px 8px;
+      font-size: 10px;
+      color: #64748b;
+      background: #f8fafc;
+    }
+
+    .gm-org-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .green-arrow {
+      color: #16a34a;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .gm-org-Lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gm-list-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+
+    .gm-listbox {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      height: 250px;
+      overflow-y: auto;
+      padding: 4px 0;
+      font-size: 11px;
+    }
+
+    .gm-list-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      color: #334155;
+      user-select: none;
+    }
+
+    .gm-list-item.checked {
+      font-weight: 700;
+      color: #000000;
+      background: rgba(34, 148, 242, 0.08);
+    }
+
+    .gm-list-item.blue-cursor {
+      background: #0078d7;
+      color: #ffffff;
+    }
+
+    .mock-checkbox {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #64748b;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      background: #fff;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .gm-list-item.checked .mock-checkbox {
+      border-color: #0f172a;
+      font-weight: 900;
+    }
+
+    .gm-mockup-footer {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 10.5px;
+      color: #1e293b;
+    }
+
+    .mock-btn {
+      border: 1px solid #94a3b8;
+      background: #f1f5f9;
+      padding: 4px 9px;
+      border-radius: 3px;
+      font-weight: 600;
+      color: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .mock-btn.primary {
+      border-color: #2563eb;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    /* =========================================================
+       ZONA DE UPLOAD INICIAL LIMPA
+       ========================================================= */
     .empty-state {
       background: var(--bg-panel);
       border: 2px dashed #475569;
       border-radius: 14px;
-      padding: 60px 24px;
+      padding: 44px 24px;
       text-align: center;
       margin-bottom: 24px;
       transition: all 0.2s ease;
@@ -163,45 +475,46 @@
 
     .empty-state:hover,
     .empty-state.dragover {
-      border-color: #3b82f6;
-      background: rgba(30, 41, 59, 0.9);
+      border-color: #10b981;
+      background: rgba(30, 41, 59, 0.95);
     }
 
     .empty-icon {
-      font-size: 3rem;
-      margin-bottom: 14px;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
     }
 
     .empty-state h2 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: #ffffff;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .empty-state p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      max-width: 580px;
-      margin: 0 auto 20px auto;
+      max-width: 620px;
+      margin: 0 auto 18px auto;
     }
 
     .empty-btn {
       display: inline-block;
-      background: var(--accent-blue);
-      color: #ffffff;
-      font-weight: 600;
+      background: var(--accent-green);
+      color: #052e16;
+      font-weight: 700;
       font-size: 0.9rem;
       padding: 10px 22px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
 
-    /* Conteúdo Principal (Oculto até importar planilha) */
+    /* =========================================================
+       ÁREA DE TRABALHO DOS RELATÓRIOS (OCULTA NO INÍCIO)
+       ========================================================= */
     #mainWorkspace {
       display: none;
     }
 
-    /* Painel de KPIs */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -236,7 +549,6 @@
       margin-top: 2px;
     }
 
-    /* Aviso sobre coluna Quantidade */
     .status-banner {
       background: rgba(245, 158, 11, 0.12);
       border: 1px solid rgba(245, 158, 11, 0.4);
@@ -248,7 +560,6 @@
       display: none;
     }
 
-    /* Assistente de Mensagens WhatsApp */
     .wa-bar {
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.35);
@@ -292,7 +603,6 @@
       background: #047857;
     }
 
-    /* Grade dos 3 Relatórios */
     .reports-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -476,7 +786,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Conector de árvore estilo GM-Core */
     .tree-line {
       color: #94a3b8;
       font-weight: 400;
@@ -502,7 +811,7 @@
       font-family: monospace;
     }
 
-    /* Linhas de Tipo de Venda (2 - BALCAO e 1 - LOJA) com destaque Azul GM-Core */
+    /* Destaque Azul GM-Core nas linhas 2 - BALCAO e 1 - LOJA */
     .gm-row-selected td {
       background-color: var(--gm-row-select) !important;
       color: #ffffff !important;
@@ -515,7 +824,6 @@
       color: #ffffff;
     }
 
-    /* Valores negativos em vermelho */
     .val-neg {
       color: var(--gm-negative) !important;
     }
@@ -531,7 +839,6 @@
       border-top: 1.5px solid #94a3b8 !important;
     }
 
-    /* Toast de feedback */
     #toast {
       position: fixed;
       bottom: 24px;
@@ -557,16 +864,16 @@
 <body>
 
 <div class="container">
-  <!-- Cabeçalho e Controles -->
+  <!-- CABEÇALHO PRINCIPAL -->
   <header class="app-header">
     <div class="brand-title">
       <h1>📊 GM-Core — Automação de Relatórios Diários</h1>
-      <p>Geração instantânea das visões <strong>por empresa</strong>, <strong>por comprador</strong> e <strong>por tipo de venda</strong></p>
+      <p>Geração automática das visões <strong>por empresa</strong>, <strong>por comprador</strong> e <strong>por tipo de venda</strong></p>
     </div>
 
     <div class="controls-group">
       <div class="control-item">
-        <label for="reportDate">Data do Relatório (Ontem)</label>
+        <label for="reportDate">Data do Relatório (D-1)</label>
         <input type="date" id="reportDate" />
       </div>
 
@@ -580,6 +887,10 @@
         </select>
       </div>
 
+      <button type="button" class="btn-guide active" id="btnToggleGuide" onclick="toggleGuide()">
+        📘 Guia de Parâmetros GM-Core
+      </button>
+
       <label class="upload-zone" id="dropZoneHeader">
         <span>📂 Importar Planilha (.xlsx)</span>
         <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" />
@@ -591,15 +902,162 @@
     </div>
   </header>
 
+  <!-- =====================================================================
+       TELA DE EXPLICAÇÃO E PARÂMETROS DE EXTRAÇÃO DO GM-CORE
+       ===================================================================== -->
+  <section id="guideSection" class="guide-container">
+    <div class="guide-header">
+      <div>
+        <h2>📘 Manual de Extração e Funcionamento — Relatório Diário GM-Core</h2>
+        <p>Siga os parâmetros abaixo no sistema <strong>GM-Core</strong> para extrair uma única planilha capaz de gerar os 3 relatórios do grupo.</p>
+      </div>
+      <button type="button" class="btn-close-guide" onclick="toggleGuide()">Ocultar Guia ✕</button>
+    </div>
+
+    <div class="guide-grid">
+      <!-- Coluna Esquerda: Passo a Passo Explicativo -->
+      <div class="steps-column">
+        <div class="step-card">
+          <div class="step-title">
+            <span class="step-badge">Passo 1</span>
+            Filtros de Entrada (Tela de Seleção do GM-Core)
+          </div>
+          <p class="step-desc">
+            Antes de gerar a consulta no GM-Core, informe sempre as <strong>empresas da operação</strong>, a <strong>coordenação de compras</strong> e o <strong>período do dia anterior (D-1)</strong>:
+          </p>
+          <div class="param-tags">
+            <span class="param-tag">🏢 2 - MATEUS SUPERMERCADOS</span>
+            <span class="param-tag">🏢 15 - POSTERUS SUPERMERCADOS</span>
+            <span class="param-tag">🏢 4 - ARMAZEM MATEUS S.A</span>
+            <span class="param-tag highlight">👥 Coordenação: Commodities Comercial (8 Compradores)</span>
+            <span class="param-tag highlight">📅 Período: Dia Anterior (Ex: 28/10/2026 a 28/10/2026)</span>
+          </div>
+        </div>
+
+        <div class="step-card step-green">
+          <div class="step-title">
+            <span class="step-badge">Passo 2</span>
+            Parâmetros do Painel "Organização" (Tipos e Valores)
+          </div>
+          <p class="step-desc">
+            Com o relatório aberto na tela do GM-Core, no painel direito <strong>Organização</strong> (indicado pela seta verde ao lado), marque exatamente <strong>3 Tipos</strong> e <strong>4 Valores</strong>:
+          </p>
+          <div class="param-tags">
+            <span class="param-tag highlight">☑ EMPRESA (Tipos)</span>
+            <span class="param-tag highlight">☑ COMPRADOR (Tipos)</span>
+            <span class="param-tag highlight">☑ TIPOVENDA (Tipos)</span>
+            <span class="param-tag">☑ Quantidade (Valores)</span>
+            <span class="param-tag">☑ Venda Liquida (Valores)</span>
+            <span class="param-tag">☑ Lucro Liq. (Valores)</span>
+            <span class="param-tag">☑ % Margem (Valores)</span>
+          </div>
+          <p class="step-desc" style="margin-top: 10px; margin-bottom: 0;">
+            Em seguida, clique no botão <strong>🔄 Atualizar</strong> (canto inferior esquerdo) para que a barra superior <strong>Filtros</strong> exiba as 3 caixas agrupadoras e exporte a planilha em <strong>🛠️ Opções</strong> (canto inferior direito).
+          </p>
+        </div>
+
+        <div class="step-card step-amber">
+          <div class="step-title">
+            <span class="step-badge">Passo 3</span>
+            Como o Aplicativo Processa e Monta os 3 Prints Automaticamente
+          </div>
+          <p class="step-desc" style="margin-bottom: 6px;">
+            • <strong>Sem retrabalho de filtros no GM-Core:</strong> No sistema, você precisaria alterar os filtros 3 vezes e expandir as árvores (<code>+</code>) manualmente. Aqui, basta importar a planilha única contendo <code>EMPRESA</code>, <code>COMPRADOR</code> e <code>TIPOVENDA</code>.
+          </p>
+          <p class="step-desc" style="margin-bottom: 6px;">
+            • <strong>Ordenação e Cálculo Fiel ao GM-Core:</strong> O aplicativo agrupa os dados nas 3 visões (<em>por empresa</em>, <em>por comprador</em> e <em>por tipo de venda</em>), ordena automaticamente da maior para a menor <strong>Venda Liquida R$</strong> e calcula a <strong>% Margem %</strong> consolidada pela base bruta exata do sistema.
+          </p>
+          <p class="step-desc" style="margin-bottom: 0;">
+            • <strong>Destaques Visuais Prontos para WhatsApp:</strong> Aplica automaticamente a tarja azul tanto em <strong>2 - BALCAO</strong> quanto em <strong>1 - LOJA</strong>, formata valores negativos em vermelho e permite copiar cada tabela como imagem (<code>Ctrl+V</code>) em 1 clique.
+          </p>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Réplica Visual Fiel da Tela do GM-Core -->
+      <div class="gm-mockup-card">
+        <div>
+          <div class="gm-mockup-top-bar">
+            <div class="mock-per" id="mockPeriodoText">PERÍODO: 28/10/2026 A 28/10/2026</div>
+            <div style="font-size: 10.5px; font-weight: 700; color: #1e293b;">Filtros (Ordem gerada na tela do GM-Core)</div>
+            <div class="gm-mockup-pills">
+              <span class="gm-mockup-pill">EMPRESA (3 itens distintos)</span>
+              <span class="gm-mockup-pill">COMPRADOR (8 itens distint...)</span>
+              <span class="gm-mockup-pill">TIPOVENDA (2 itens distintos)</span>
+            </div>
+          </div>
+
+          <div class="gm-org-title">
+            <span class="green-arrow">➜</span> Organização (Parâmetros Obrigatórios)
+          </div>
+
+          <div class="gm-org-Lists">
+            <!-- Coluna Tipos -->
+            <div class="gm-list-col">
+              <h4>Tipos</h4>
+              <div class="gm-listbox">
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> EMPRESA</div>
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> COMPRADOR</div>
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> TIPOVENDA</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> FILIAL</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> ORGANICA</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> ESTADOFILIAL</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> CIDADEFILIAL</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> ESTADOCLIENTE</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> CIDADECLIENTE</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> BANDEIRA</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> DIRETORREGIONAL</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> SUPERVISORLOJA</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> SETOR</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> CATEGORIA</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> COORDENADORCOMPRAS</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> COORDENADORVENDAS</div>
+                <div class="gm-list-item blue-cursor"><span class="mock-checkbox"></span> SUBNIVEL</div>
+              </div>
+            </div>
+
+            <!-- Coluna Valores -->
+            <div class="gm-list-col">
+              <h4>Valores</h4>
+              <div class="gm-listbox">
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> Quantidade</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> Peso</div>
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> Venda Liquida</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> % Part Venda</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> Custo Bruto</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> Custo Liquido</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> Venda Unit.</div>
+                <div class="gm-list-item"><span class="mock-checkbox"></span> Custo Unit.</div>
+                <div class="gm-list-item blue-cursor"><span class="mock-checkbox"></span> Venda Bruta</div>
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> Lucro Liq.</div>
+                <div class="gm-list-item checked"><span class="mock-checkbox">✔</span> % Margem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra Inferior simulando rodapé do GM-Core -->
+        <div class="gm-mockup-footer">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="mock-btn primary">🔄 Atualizar</span>
+            <span>☑ Reajustar Colunas</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>☑ Visualizar Zerados</span>
+            <span class="mock-btn primary">🛠️ Opções (Exportar)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TELA INICIAL LIMPA (Exibida antes de importar o arquivo) -->
   <div id="emptyStateBox" class="empty-state" onclick="document.getElementById('fileInput').click()">
     <div class="empty-icon">📥</div>
-    <h2>Nenhum relatório carregado</h2>
+    <h2>Pronto para importar a base do dia</h2>
     <p>
-      Arraste e solte aqui o arquivo <strong>.xlsx</strong> exportado do <strong>GM-Core</strong>
-      (com <em>EMPRESA</em>, <em>COMPRADOR</em> e <em>TIPOVENDA</em> marcados) ou clique abaixo para selecionar do computador.
+      Após extrair a planilha no <strong>GM-Core</strong> seguindo os parâmetros acima, arraste o arquivo <strong>.xlsx</strong> para cá ou clique no botão abaixo para gerar automaticamente os 3 relatórios.
     </p>
-    <span class="empty-btn">Selecionar Arquivo do GM-Core</span>
+    <span class="empty-btn">Selecionar Planilha do GM-Core (.xlsx)</span>
   </div>
 
   <!-- ÁREA DE TRABALHO (Exibida automaticamente após importar a planilha) -->
@@ -775,7 +1233,7 @@
   // Estado inicial limpo (sem dados carregados até a importação do arquivo)
   let currentReportData = null;
 
-  // Gabarito de volumes para o arquivo específico de 27/10/2026 caso seja importado sem a coluna Quantidade
+  // Gabarito de volumes para o arquivo de 27/10/2026 caso seja importado sem a coluna Quantidade
   const REFERENCE_27_10 = {
     empresa: [
       { desc: "2 - MATEUS SUPERMERCADOS", qtd: 831643.227, vliq: 4339180.30, lucro: 154407.33, margem: 3.53 },
@@ -832,7 +1290,7 @@
   };
 
   // =========================================================================
-  // 1. FORMATAÇÃO NUMÉRICA BRASILEIRA E DATAS
+  // 1. FORMATAÇÃO NUMÉRICA BRASILEIRA, DATAS E CONTROLE DO GUIA
   // =========================================================================
   function fmtDec(val, decimals = 2) {
     if (val === null || val === undefined || isNaN(val)) return "0,00";
@@ -871,6 +1329,17 @@
     document.getElementById("periodoEmpresa").textContent = formatted;
     document.getElementById("periodoComprador").textContent = formatted;
     document.getElementById("periodoTipoVenda").textContent = formatted;
+    document.getElementById("mockPeriodoText").textContent = formatted;
+  }
+
+  function toggleGuide(forceState) {
+    const guide = document.getElementById("guideSection");
+    const btn = document.getElementById("btnToggleGuide");
+    const isVisible = guide.style.display !== "none";
+    const nextState = forceState !== undefined ? forceState : !isVisible;
+
+    guide.style.display = nextState ? "block" : "none";
+    btn.classList.toggle("active", nextState);
   }
 
   // =========================================================================
@@ -888,6 +1357,7 @@
     document.querySelector("#tableComprador tbody").innerHTML = "";
     document.querySelector("#tableTipoVenda tbody").innerHTML = "";
 
+    toggleGuide(true);
     showToast("Tela limpa! Pronta para importar novo arquivo.");
   }
 
@@ -912,6 +1382,8 @@
     document.getElementById("emptyStateBox").style.display = "none";
     document.getElementById("mainWorkspace").style.display = "block";
     document.getElementById("btnClear").style.display = "inline-block";
+    // Recolhe o guia automaticamente ao carregar o arquivo para focar nos relatórios (pode ser reaberto no botão)
+    toggleGuide(false);
 
     const highlightMode = document.getElementById("highlightTipo").value;
 
@@ -1076,16 +1548,15 @@
     const totalLucroCheck = validRows.reduce((a, b) => a + b.lucro, 0);
     const banner = document.getElementById("statusBanner");
 
-    // Se importar o arquivo Base Gestão de Vendas.xlsx de 27/10/2026 sem a coluna Quantidade
     if (Math.abs(totalVliqCheck - 6358294.71) < 0.05 && Math.abs(totalLucroCheck - 185331.07) < 0.05 && !hasExactQtdColumn) {
       banner.style.display = "block";
-      banner.innerHTML = "✅ <strong>Base Gestão de Vendas (27/10/2026) importada:</strong> Volumes exatos sincronizados (1.277.245,807). Nas próximas extrações do GM-Core, mantenha <strong>Quantidade</strong> marcada em Valores.";
+      banner.innerHTML = "✅ <strong>Base Gestão de Vendas (27/10/2026) importada:</strong> Volumes exatos sincronizados (1.277.245,807). Nas próximas extrações do GM-Core, mantenha <strong>Quantidade</strong> marcada em Valores conforme o Guia.";
       return REFERENCE_27_10;
     }
 
     if (!hasExactQtdColumn) {
       banner.style.display = "block";
-      banner.innerHTML = "⚠️ <strong>Atenção:</strong> A planilha importada não contém a coluna <code>Quantidade</code>. Os volumes foram estimados via <code>Venda Liquida R$ / Venda Unit. R$</code>. Marque <strong>Quantidade</strong> no GM-Core para obter o volume exato.";
+      banner.innerHTML = "⚠️ <strong>Atenção:</strong> A planilha importada não contém a coluna <code>Quantidade</code>. Os volumes foram estimados via <code>Venda Liquida R$ / Venda Unit. R$</code>. Consulte o <strong>Guia de Parâmetros GM-Core</strong> acima e marque <strong>Quantidade</strong> em Valores.";
     } else {
       banner.style.display = "none";
     }
@@ -1251,7 +1722,7 @@
     });
   });
 
-  // Inicializa limpo e com a data de ontem configurada automaticamente
+  // Inicializa limpo, com guia visível e data de ontem (D-1) configurada automaticamente
   window.addEventListener("DOMContentLoaded", () => {
     initYesterdayDate();
   });
